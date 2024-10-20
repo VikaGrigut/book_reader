@@ -1,0 +1,15 @@
+{
+  "Library": "Die Bibliothek",
+  "DeleteBookDialog": "Möchten Sie dieses Buch aus der Bibliothek löschen?",
+  "NoBooks": "Es gibt noch keine Bücher in Ihrer Bibliothek.",
+  "Cancel": "Annullierung",
+  "Delete": "Entfernen",
+  "NoSuchBook": "Der Pfad {path} existiert nicht.",
+  "Notes": "Notizen",
+  "NoNotes": "Ändern",
+  "Change": "Изменить",
+  "ChangingNote": "Bearbeiten einer Notiz",
+  "NewNote": "Neue Notiz",
+  "EnterNote": "Notiz eingeben",
+  "Add": "Hinzufügen"
+}
