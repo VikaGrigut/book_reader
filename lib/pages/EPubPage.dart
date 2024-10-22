@@ -4,7 +4,6 @@ import 'package:epub_view/epub_view.dart';
 import 'package:flutter/material.dart';
 import '../Book.dart';
 import '../db/DBProvider.dart';
-import 'MainPage.dart';
 import 'NotesPage.dart';
 
 class EPubPage extends StatefulWidget {
@@ -43,15 +42,6 @@ class _EPubPageState extends State<EPubPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(book.fileName),
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-          alignment: Alignment.centerLeft,
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => MainPage()));
-          },
-        ),
         actions: [
           IconButton(
               onPressed: () async {

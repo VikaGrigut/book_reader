@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:book_reader/Book.dart';
 import 'package:book_reader/db/DBProvider.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +22,6 @@ class _NotesPageState extends State<NotesPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     if(notes.isNotEmpty){
       if(notes[0] == "") notes.removeAt(0);
     }
@@ -38,9 +35,6 @@ class _NotesPageState extends State<NotesPage> {
         title: Text(
           t.Notes,
         ),
-        leading: IconButton(
-            onPressed: ()=>Navigator.pop(context,[book]),
-            icon: Icon(Icons.arrow_back)),
       ),
       body: notes.isNotEmpty
         ? ListView.separated(
@@ -176,7 +170,7 @@ class _NotesPageState extends State<NotesPage> {
                           _controller.clear();
                           setState(() {});
                         },
-                        child: Text(t.Delete,)),
+                        child: Text(t.Add,)),
               ],
             );
           });
@@ -186,6 +180,5 @@ class _NotesPageState extends State<NotesPage> {
     final db = await dbProvider.database;
     int res = await db.update('Books', book.toJson(),where: 'id = ?', whereArgs: [book.id],);
     print(res);
-}
-
+  }
 }

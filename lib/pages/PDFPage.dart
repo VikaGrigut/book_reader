@@ -1,11 +1,7 @@
 import 'dart:io';
 
 import 'package:book_reader/Book.dart';
-import 'package:book_reader/pages/MainPage.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
 import '../db/DBProvider.dart';
@@ -47,18 +43,10 @@ class _PDFPageState extends State<PDFPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         title: Center(
             child: Text(
           book.fileName,
         )),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => MainPage()));
-          },
-        ),
         actions: [
           IconButton(
               onPressed: () async {
