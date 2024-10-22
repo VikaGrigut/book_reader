@@ -54,7 +54,7 @@ class _MainPageState extends State<MainPage>{
             onPressed: () async {
               await _chooseFile();
               if (file != null) {
-                _openBook(context, listOfBooks!.last, false);
+                _openBook(context, listOfBooks![0], false);
               }
             },
             icon: const Icon(
@@ -92,7 +92,7 @@ class _MainPageState extends State<MainPage>{
       listOfBooks = [];
       if (result.isNotEmpty) {
         for (var el in result) {
-          listOfBooks!.add(Book.fromJson(el));
+          listOfBooks!.insert(0,Book.fromJson(el));
         }
       } else {
         listOfBooks = null;
@@ -140,12 +140,12 @@ class _MainPageState extends State<MainPage>{
       file = filePickerResult.files.single;
       Book openBook = Book(
           id: listOfBooks!.isNotEmpty && listOfBooks != null
-              ? listOfBooks!.last.id + 1
+              ? listOfBooks![0].id + 1
               : 0,
           fileName: file!.name,
           filePath: file!.path,
           notes: []);
-      listOfBooks!.add(openBook);
+      listOfBooks!.insert(0,openBook);
       setState(() {
       });
     } else {
@@ -160,8 +160,9 @@ class _MainPageState extends State<MainPage>{
     var result = await db.query('Books');
     if (result.isNotEmpty) {
       for (var el in result) {
-        listOfBooks!.add(Book.fromJson(el));
+        listOfBooks!.insert(0,Book.fromJson(el));
       }
+      //listOfBooks = List.from(listOfBooks!.reversed);
     }
     print(result.length);
     setState(() {});
